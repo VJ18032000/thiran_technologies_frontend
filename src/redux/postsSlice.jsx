@@ -3,25 +3,25 @@ import axios from 'axios';
 
 // Async thunk to fetch posts
 export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
-  const response = await axios.get('http://localhost :5000/posts');
+  const response = await axios.get('http://localhost:5000/posts');
   return response.data;
 });
 
 // Async thunk to create a post
 export const createPost = createAsyncThunk('posts/createPost', async (postData) => {
-  const response = await axios.post('http://localhost :5000/posts', postData);
+  const response = await axios.post('http://localhost:5000/posts', postData);
   return response.data;
 });
 
 // Async thunk to update a post
 export const updatePost = createAsyncThunk('posts/updatePost', async ({ id, postData }) => {
-  const response = await axios.put(`http://localhost :5000/posts/${id}`, postData);
+  const response = await axios.put(`http://localhost:5000/posts/${id}`, postData);
   return response.data;
 });
 
 // Async thunk to delete a post
 export const deletePost = createAsyncThunk('posts/deletePost', async (id) => {
-  await axios.delete(`http://localhost :5000/posts/${id}`);
+  await axios.delete(`http://localhost:5000/posts/${id}`);
   return id;
 });
 
