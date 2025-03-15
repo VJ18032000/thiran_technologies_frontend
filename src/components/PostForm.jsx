@@ -6,7 +6,6 @@ import { TextField, Button, Typography, Grid, CircularProgress, FormHelperText, 
 const PostForm = ({ postToEdit, onFormSubmit }) => {
   const dispatch = useDispatch();
 
-  // State hooks
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [image, setImage] = useState(null);
@@ -18,8 +17,8 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
     if (postToEdit) {
       setTitle(postToEdit.title);
       setText(postToEdit.text);
-      setImage(null); // Reset image on edit
-      setImagePreview(null); // Reset image preview
+      setImage(null); 
+      setImagePreview(null); 
     } else {
       setTitle('');
       setText('');
@@ -39,7 +38,7 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Validation
+
     if (!title || !text) {
       setError('Title and Text are required');
       return;
@@ -50,7 +49,7 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
       return;
     }
 
-    setError(''); // Reset error message if validation passes
+    setError(''); 
 
     const formData = new FormData();
     formData.append('title', title);
@@ -67,7 +66,7 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
         setImagePreview(null);
         setLoading(false);
         if (onFormSubmit) onFormSubmit();
-      }).catch(() => setLoading(false)); // Handle error if any
+      }).catch(() => setLoading(false)); 
     } else {
       dispatch(createPost(formData)).then(() => {
         setTitle('');
@@ -76,7 +75,7 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
         setImagePreview(null);
         setLoading(false);
         if (onFormSubmit) onFormSubmit();
-      }).catch(() => setLoading(false)); // Handle error if any
+      }).catch(() => setLoading(false)); 
     }
   };
 
@@ -92,7 +91,7 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            error={!!error && !title} // Show error if title is missing
+            error={!!error && !title} 
             helperText={error && !title ? 'Title is required' : ''}
           />
         </Grid>
@@ -106,7 +105,7 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
             value={text}
             onChange={(e) => setText(e.target.value)}
             required
-            error={!!error && !text} // Show error if text is missing
+            error={!!error && !text} 
             helperText={error && !text ? 'Text is required' : ''}
           />
         </Grid>
@@ -154,9 +153,9 @@ const PostForm = ({ postToEdit, onFormSubmit }) => {
     disabled={loading}
     sx={{
       '&:hover': {
-        borderColor: 'white', // Set border color on hover to white (optional)
+        borderColor: 'white', 
         backgroundColor: 'primary.main', 
-        color:'white'// Hover background color (optional)
+        color:'white'
       },
     }}
   >

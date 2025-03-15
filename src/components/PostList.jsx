@@ -17,8 +17,8 @@ const PostList = ({ handleEdit }) => {
     dispatch(deletePost(id));
   };
 
-  if (loading) return <CircularProgress />; // Using MUI CircularProgress
-  if (error) return <Typography color="error">Error: {error}</Typography>; // Using MUI Typography
+  if (loading) return <CircularProgress />; 
+  if (error) return <Typography color="error">Error: {error}</Typography>;
 
   return (
     <div>
@@ -29,11 +29,11 @@ const PostList = ({ handleEdit }) => {
             key={post.id}
             alignItems="flex-start"
             sx={{
-              backgroundColor: index % 2 === 0 ? '#e3f2fd' : '#ffffff', // Alternating background color
+              backgroundColor: index % 2 === 0 ? '#e3f2fd' : '#ffffff',
               marginBottom: 2,
               borderRadius: 1,
               '&:hover': {
-                backgroundColor: '#90caf9', // Hover effect for color
+                backgroundColor: '#90caf9', 
               },
             }}
           >
